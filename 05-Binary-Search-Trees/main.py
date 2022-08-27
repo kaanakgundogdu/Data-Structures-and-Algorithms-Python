@@ -30,6 +30,7 @@ class Binary_Search_Tree:
                     temp.right=new_node
                     return True
                 temp=temp.right
+
     def contains(self,value):
         temp= self.root
         while temp is not None:
@@ -40,6 +41,12 @@ class Binary_Search_Tree:
             else:
                 return True
         return False
+    
+    def min_value_node(self,current_node):
+        while current_node.left is not None:
+            current_node=current_node.left
+        return current_node.value
+
 
 my_bs_tree=Binary_Search_Tree()
 my_bs_tree.insert(2)
@@ -53,3 +60,12 @@ print(my_bs_tree.root.right.value)
 print("-----------------")
 print("is tree contains 4: ",my_bs_tree.contains(4))
 print("is tree contains 2: ",my_bs_tree.contains(2))
+
+my_bs_tree.insert(54)
+my_bs_tree.insert(23)
+my_bs_tree.insert(0)
+my_bs_tree.insert(99)
+print("-----------------")
+print("root's min value is: ",my_bs_tree.min_value_node(my_bs_tree.root))
+print("subtree of  1's min value is: ",my_bs_tree.min_value_node(my_bs_tree.root.left))
+print("subtree of  3's min value is: ",my_bs_tree.min_value_node(my_bs_tree.root.right))
