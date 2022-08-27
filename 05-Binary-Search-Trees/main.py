@@ -30,6 +30,16 @@ class Binary_Search_Tree:
                     temp.right=new_node
                     return True
                 temp=temp.right
+    def contains(self,value):
+        temp= self.root
+        while temp is not None:
+            if value<temp.value:
+                temp=temp.left
+            elif value>temp.value:
+                temp=temp.right
+            else:
+                return True
+        return False
 
 my_bs_tree=Binary_Search_Tree()
 my_bs_tree.insert(2)
@@ -40,3 +50,6 @@ my_bs_tree.insert(2)
 print(my_bs_tree.root.value)
 print(my_bs_tree.root.left.value)
 print(my_bs_tree.root.right.value)
+print("-----------------")
+print("is tree contains 4: ",my_bs_tree.contains(4))
+print("is tree contains 2: ",my_bs_tree.contains(2))
