@@ -25,7 +25,14 @@ class HashTable:
                 if self.data_map[index][i][0]==key:
                     return self.data_map[index][i][1]
         return None
-
+    
+    def keys(self):
+        all_keys=[]
+        for i in range(len(self.data_map)):
+            if self.data_map[i] is not None:
+                for j in range(len(self.data_map[i])):
+                    all_keys.append(self.data_map[i][j][0])
+        return all_keys
 
 my_hash_table = HashTable()
 
@@ -38,3 +45,5 @@ my_hash_table.print_table()
 print("-------------------")
 print("value of kaan is ",my_hash_table.get_item("kaan"))
 print("value of tkk is ",my_hash_table.get_item("tkk"))
+print("-------------------")
+print("all keys: ",my_hash_table.keys())
